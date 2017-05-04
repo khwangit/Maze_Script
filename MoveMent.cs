@@ -14,14 +14,17 @@ public class MoveMent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//player.transform.localRotation = cam.transform.localRotation;
-		float yRot = cam.transform.rotation.y;
+		//player.transform.rotation = cam.transform.rotation; spinnin like crazy
+		float yRot = cam.transform.rotation.y; 
 
-		Debug.Log (yRot);
+		Vector3 newRot = new Vector3 (transform.eulerAngles.x, cam.transform.eulerAngles.y, transform.eulerAngles.z);
+		player.transform.rotation = Quaternion.Euler (newRot);
 
-		player.transform.rotation.eulerAngles = Quaternion.Euler (0, yRot, 0);
+		//Debug.Log (yRot);
 
-		//player.transform.rotation = yRot;
+		//player.transform.rotation.eulerAngles = Quaternion.Euler (0, yRot, 0);
+
+		//player.transform.rotation.y = yRot;
 		//player.transform.Rotate(0, yRot, 0);
 
 		//if (Input.touchCount == 1){
