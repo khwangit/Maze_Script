@@ -4,7 +4,8 @@ using System.Collections;
 public class MoveMent : MonoBehaviour {
 
 	public GameObject player;
-	public GameObject cam;
+	private float lockPos = 0;
+	//public GameObject cam;
 
 	// Use this for initialization
 	void Start () {
@@ -15,10 +16,12 @@ public class MoveMent : MonoBehaviour {
 	void Update () {
 
 		//player.transform.rotation = cam.transform.rotation; spinnin like crazy
-		float yRot = cam.transform.rotation.y; 
+		//float yRot = cam.transform.rotation.y; 
 
+		/*
 		Vector3 newRot = new Vector3 (transform.eulerAngles.x, cam.transform.eulerAngles.y, transform.eulerAngles.z);
 		player.transform.rotation = Quaternion.Euler (newRot);
+		*/
 
 		//Debug.Log (yRot);
 
@@ -30,6 +33,7 @@ public class MoveMent : MonoBehaviour {
 		//if (Input.touchCount == 1){
 
 		//	player.transform.position = transform.position + Camera.main.transform.forward * 10f * Time.deltaTime;
+		player.transform.rotation = Quaternion.Euler(lockPos,transform.rotation.eulerAngles.y, lockPos);
 		player.transform.position = transform.position + player.transform.forward * 10f * Time.deltaTime;
 
 		//player.transform.position += new Vector3(0,0,1);

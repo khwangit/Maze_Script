@@ -3,7 +3,8 @@ using System.Collections;
 
 public class LockRot : MonoBehaviour {
 
-	public float lockPos = 0;
+	public GameObject pl;
+	private float lockPos = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -12,6 +13,6 @@ public class LockRot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.rotation = Quaternion.Euler(lockPos,transform.rotation.eulerAngles.y, lockPos);
+		pl.transform.rotation = Quaternion.Euler(lockPos,transform.rotation.eulerAngles.y, lockPos);
 	}
 }
