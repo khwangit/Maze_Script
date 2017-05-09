@@ -16,10 +16,10 @@ public class MoveMent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (onGround){
-			//if (Input.touchCount == 1){
+			if (Input.touchCount == 1){
 				transform.rotation = Quaternion.Euler(lockPos,transform.rotation.eulerAngles.y, lockPos);
 				transform.position = transform.position + transform.forward * 10f * Time.deltaTime;
-			//}
+			}
 		}
 	}
 		
