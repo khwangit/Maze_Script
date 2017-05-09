@@ -5,6 +5,6 @@ using UnityEngine.SceneManagement;
 public class ChangeLevel : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
-		SceneManager.LoadScene ("first");
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex+1);
 	}
 }
