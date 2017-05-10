@@ -8,9 +8,10 @@ public class Jump : MonoBehaviour {
 	public float coolDown;
 	public TextMesh timerText;
 	public GameObject sky;
+	private bool onGround = false;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		coolDown = 30f;
 		sky.SetActive(false);
 	}
@@ -21,7 +22,7 @@ public class Jump : MonoBehaviour {
 			coolDown = 0f;
 			sky.SetActive (true);
 			timerText.text = "Jump Ready!";
-		} else {
+		} else if (onGround == true) {
 			coolDown -= Time.deltaTime;
 			timerText.text = Mathf.RoundToInt (coolDown).ToString();
 		}
@@ -31,5 +32,19 @@ public class Jump : MonoBehaviour {
 		rb.velocity = new Vector3 (0f, 50f, 0f);
 		coolDown = 30f;
 		sky.SetActive(false);
+	}
+
+	void OnCollisionEnter (Collision col)
+	{
+		if(col.gameObject.tag == "Ground")
+		{
+			onGround = true;
+		}
+	}
+
+	void OnCollisionExit (Collision col){
+		if(col.gameObject.tag == "Ground"){
+			onGround = false;
+		}
 	}
 }
