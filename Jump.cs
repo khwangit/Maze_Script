@@ -6,20 +6,22 @@ public class Jump : MonoBehaviour {
 	private bool stopped;
 	public Rigidbody rb;
 	public float coolDown;
+	public float resett;
 	public TextMesh timerText;
 	public GameObject sky;
+	public float jumpforce = 40f;
 	private bool onGround = false;
 
 	// Use this for initialization
 	void Awake () {
-		coolDown = 30f;
+		coolDown = coolDown;
 		sky.SetActive(false);
+		timerText.text = Mathf.RoundToInt (coolDown).ToString();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (coolDown <= 0f) {
-			coolDown = 0f;
 			sky.SetActive (true);
 			timerText.text = "Jump Ready!";
 		} else if (onGround == true) {
@@ -29,8 +31,9 @@ public class Jump : MonoBehaviour {
 	}
 
 	public void clickToJump(){
-		rb.velocity = new Vector3 (0f, 50f, 0f);
-		coolDown = 30f;
+		rb.velocity = new Vector3 (0f, jumpforce, 0f);
+		coolDown = resett;
+		timerText.text = coolDown.ToString ();
 		sky.SetActive(false);
 	}
 
