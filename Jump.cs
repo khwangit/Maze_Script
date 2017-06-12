@@ -9,8 +9,10 @@ public class Jump : MonoBehaviour {
 	public float resett;
 	public TextMesh timerText;
 	public GameObject sky;
-	public float jumpforce = 40f;
+	public float jumpforce = 30f;
 	private bool onGround = false;
+
+	public Transform other;
 
 	// Use this for initialization
 	void Awake () {
@@ -27,6 +29,12 @@ public class Jump : MonoBehaviour {
 		} else if (onGround == true) {
 			coolDown -= Time.deltaTime;
 			timerText.text = Mathf.RoundToInt (coolDown).ToString();
+		}
+
+
+		if (other) {
+			float dist = Vector3.Distance(other.position, transform.position);
+			print("Distance to other: " + dist);
 		}
 	}
 
