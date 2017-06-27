@@ -26,6 +26,9 @@ public class Jump : MonoBehaviour {
 		if (coolDown <= 0f) {
 			sky.SetActive (true);
 			timerText.text = "Jump Ready!";
+			/*if(Input.GetMouseButtonDown(0)){
+				clickToJump();
+			}*/
 		} else if (onGround == true) {
 			coolDown -= Time.deltaTime;
 			timerText.text = Mathf.RoundToInt (coolDown).ToString();
