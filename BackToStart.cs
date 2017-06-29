@@ -16,6 +16,11 @@ public class BackToStart : MonoBehaviour {
 		SceneManager.LoadScene (sceneBuildIndex:7);
 	}
 
+	public void GoToSaved(){
+		int y = PlayerPrefs.GetInt ("cLevel");
+		SceneManager.LoadScene (sceneBuildIndex: y);
+	}
+
 	public void DeleteAllPrefs(){
 		PlayerPrefs.DeleteAll();
 	}

@@ -5,6 +5,7 @@ public class CheckUnlock : MonoBehaviour {
 
 	public GameObject GoInf;
 	public GameObject NoInf;
+	public GameObject cont;
 
 	// Use this for initialization
 	void Update () {
@@ -14,6 +15,12 @@ public class CheckUnlock : MonoBehaviour {
 		} else {
 			GoInf.SetActive (false);
 			NoInf.SetActive (true);
+		}
+
+		if (PlayerPrefs.GetInt ("cLevel") > 0) {
+			cont.SetActive (true);
+		} else {
+			cont.SetActive (false);
 		}
 	}
 }

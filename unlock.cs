@@ -6,5 +6,6 @@ public class unlock : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		PlayerPrefs.SetInt ("unlocked", 1);
+		PlayerPrefs.SetInt ("cLevel", 0);
 	}
 }
